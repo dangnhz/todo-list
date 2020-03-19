@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import uuid from 'uuid';
+// import uuid from 'uuid';
 export default {
     name: 'AddTodo',
     data: function(){
@@ -26,11 +26,10 @@ export default {
     methods: {
         saveTodo: function(){
             const newTodo = {
-                id: uuid.v4(),
                 title: this.title,
                 completed: false
             };
-                this.$emit("saveTodo", newTodo);
+                this.$store.dispatch("ADD_TODO", newTodo);
                 this.title = '';
             
         }

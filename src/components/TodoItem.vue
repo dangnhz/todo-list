@@ -19,13 +19,13 @@ export default {
     props: ['todo','index'],
     methods: {
         updateStatus: function(){
-            // this.todo.completed = !this.todo.completed;
-            this.$emit("update-status", this.todo.id);
+            
+            this.$store.dispatch("UPDATE_STATUS", this.todo.id);
         },
-        deleteTodo: function(){
+        deleteTodo() {
             var x = confirm("Are you sure you want to delete?");
             if (x) {
-                this.$emit("delete-todo", this.todo.id);
+                this.$store.dispatch("DELETE_TODO", this.todo.id);
                 return true;}
             else
                 return false;

@@ -1,6 +1,6 @@
 <template>
     <form class="col-sm-3 mb-3">
-            <select id="filter" class="form-control" v-model="selected" v-on:change="$emit('on-filter-change', selected)">
+            <select id="filter" class="form-control" v-model="selected" v-on:change="onFilterChange">
                 <option disabled value="">Filter</option>
                 <option value="all" selected>All</option>
                 <option value="notCompleted">Not Completed</option>
@@ -15,6 +15,11 @@ export default {
     data: function(){
         return {
             selected:''
+        }
+    },
+    methods: {
+        onFilterChange(){
+            this.$store.dispatch('SET_FILTER',this.selected)
         }
     }
 }

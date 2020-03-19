@@ -21,19 +21,19 @@ export default {
     methods: {
         sortByNameAsc: function (){
             this.sortType = 'nameAsc';
-            this.$emit('sort-todo', this.sortType)
+            this.$store.dispatch('SET_SORT_TYPE', this.sortType)
         },
         sortByNameDesc: function (){
             this.sortType = 'nameDesc';
-            this.$emit('sort-todo', this.sortType)
+            this.$store.dispatch('SET_SORT_TYPE', this.sortType)
         },
         sortByStatusNotCompleted: function (){
             this.sortType = 'statusNotCompleted';
-            this.$emit('sort-todo', this.sortType)
+            this.$store.dispatch('SET_SORT_TYPE', this.sortType)
         },
         sortByStatusCompleted: function (){
             this.sortType = 'statusCompleted';
-            this.$emit('sort-todo', this.sortType)
+            this.$store.dispatch('SET_SORT_TYPE', this.sortType)
         }
     }
 }
